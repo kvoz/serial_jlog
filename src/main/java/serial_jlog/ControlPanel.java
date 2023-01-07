@@ -6,6 +6,8 @@ import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -94,14 +96,16 @@ public class ControlPanel extends JPanel implements ActionListener {
 			adapter.connect();
 			adapter.send(CMD_READ_LOG);
 			
-			Integer log_records = adapter.recv(UINT32_SIZE);
-			TextOutput.print("Log records: " + log_records.toString() + "\n");
+			int log_records = adapter.recv(UINT32_SIZE);
+			TextOutput.print("Log records: " + log_records + "\n");
 			
 			for (int i = 0; i < log_records; i++) {
 				// read timestamp
-				TextOutput.print("[" + i + "]" + " Timestamp: " + adapter.recv(UINT32_SIZE).toString() + ", ");
+				int timeStamp = adapter.recv(UINT32_SIZE);
 				//read event
-				TextOutput.print("event: " + adapter.recv(UINT32_SIZE).toString() + "\n");
+				int event = adapter.recv(UINT32_SIZE);
+				// print results
+				TextOutput.print("[" + i + "] " + parseDateTime(timeStamp) + ", EVENT: " + event + "\n");
 			}
 			
 			adapter.disconnect();
@@ -129,6 +133,12 @@ public class ControlPanel extends JPanel implements ActionListener {
 			StatusBar.setStatus("Done");
 		}
  	}
+	
+	private String parseDateTime(int timeStampMs) {
+		Date time = new Date((long)timeStampMs);
+		SimpleDateFormat myFormatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		return myFormatter.format(time);
+	}
 	
 }
 
