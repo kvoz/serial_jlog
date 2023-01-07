@@ -12,7 +12,7 @@ public class Main {
 		StatusBar.setStatus("Ready");
 		
 		// Create control panel instance
-		ControlPanel controlPanel = new ControlPanel(mainFrame.getWidth());
+		ControlPanel controlPanel = new ControlPanel();
 		
 		// Create text output area
 		TextOutput textOutput = new TextOutput(mainFrame.getWidth());

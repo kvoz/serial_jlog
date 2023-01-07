@@ -1,19 +1,16 @@
 package serial_jlog;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Rectangle;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
-import javax.swing.border.BevelBorder;
 
 public class ControlPanel extends JPanel implements ActionListener {
 
@@ -30,9 +27,10 @@ public class ControlPanel extends JPanel implements ActionListener {
 	private final String CMD_TEST_LOG = "ttt";
 	private final int UINT32_SIZE = 4;
 	
-	ControlPanel(int frameWidth) {
+	ControlPanel() {
 		final int BUTTON_WIDTH = 25;
 		final int BUTTON_HEIGHT = 25;
+		Insets buttonInsets = new Insets(3, 3, 3, 3);
 		
 		// Create the control panel
 		this.setLayout(new FlowLayout(FlowLayout.LEADING, 0, 0));
@@ -40,23 +38,26 @@ public class ControlPanel extends JPanel implements ActionListener {
 		// Create read log button
 		ImageIcon readIcon = new ImageIcon(".\\resources\\in.256x256.png");
 		readLog = new JButton(readIcon);
-		readLog.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+//		readLog.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
 		readLog.setBackground(Color.white);
 		readLog.setFocusable(false);
+		readLog.setMargin(buttonInsets);
 		
 		// Create test log button
 		ImageIcon testIcon = new ImageIcon(".\\resources\\add.256x256.png");
 		testLog = new JButton(testIcon);
-		testLog.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+//		testLog.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
 		testLog.setBackground(Color.white);
 		testLog.setFocusable(false);
+		testLog.setMargin(buttonInsets);
 		
 		// Create read log button
 		ImageIcon eraseIcon = new ImageIcon(".\\resources\\trash.256x256.png");
 		eraseLog = new JButton(eraseIcon);
-		eraseLog.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+//		eraseLog.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
 		eraseLog.setBackground(Color.white);
 		eraseLog.setFocusable(false);
+		eraseLog.setMargin(buttonInsets);
 		
 		// Link buttons to action listener
 		readLog.addActionListener(this);
