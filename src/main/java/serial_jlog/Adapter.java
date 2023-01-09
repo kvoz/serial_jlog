@@ -28,7 +28,7 @@ public class Adapter extends SerialPort {
 		try {
 			this.openPort();
 
-			this.setParams(SerialPort.BAUDRATE_115200,
+			this.setParams(921600,
 					SerialPort.DATABITS_8,
 					SerialPort.STOPBITS_1,
 					SerialPort.PARITY_NONE);

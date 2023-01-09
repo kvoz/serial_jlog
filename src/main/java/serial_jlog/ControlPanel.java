@@ -134,9 +134,10 @@ public class ControlPanel extends JPanel implements ActionListener {
 		}
  	}
 	
-	private String parseDateTime(int timeStampMs) {
-		Date time = new Date((long)timeStampMs);
-		SimpleDateFormat myFormatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+	private String parseDateTime(int timeStamp) {
+		Date time = new Date((long)timeStamp * 1000); // Date gets time stamp in ms
+		System.out.println(timeStamp);
+		SimpleDateFormat myFormatter = new SimpleDateFormat("dd-MM-yyyy (HH:mm)");
 		return myFormatter.format(time);
 	}
 	
