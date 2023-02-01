@@ -14,7 +14,9 @@ import mainWindow.View;
  */
 
 /**
- * Icons used from https://iconduck.com/ with name "Lucide Icon Toolkit" and "UX Colors Illustration Bundle"
+ * Icons used from:
+ * - https://iconduck.com/sets/lucide-icon-toolkit
+ * - https://iconduck.com/sets/ux-colors-illustration-bundle
  */
 
 public class Main {
@@ -22,12 +24,12 @@ public class Main {
 	public static void main(String[] args) {
 		//Schedule a job for the event-dispatching thread:
 		//creating and showing this application's GUI.
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				new View();
-			}
-		});
-
+		SwingUtilities.invokeLater(
+				new Runnable() {
+					public void run() {
+						new View();
+					}
+				});
 	}
 	
 }

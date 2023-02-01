@@ -2,7 +2,6 @@ package mainWindow;
 
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.ScrollPane;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
