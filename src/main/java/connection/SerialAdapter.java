@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import jssc.SerialPort;
 import jssc.SerialPortException;
@@ -80,6 +81,7 @@ public class SerialAdapter {
 		Date time = new Date((long)timeStamp * 1000); // Date gets time stamp in ms
 //		System.out.println(timeStamp);
 		SimpleDateFormat myFormatter = new SimpleDateFormat("dd-MM-yyyy (HH:mm)");
+		myFormatter.setTimeZone(TimeZone.getTimeZone("UTC"));
 		return myFormatter.format(time);
 	}
 	
