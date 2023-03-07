@@ -31,10 +31,16 @@ public class PortsList extends JPanel {
 			model.addElement(port);
 		}
 		
-		portNames.setSelectedIndex(0);
+		if (model.getSize() != 0) {
+			portNames.setSelectedIndex(0);
+		}
 	}
 	
 	public String getCurrentPort() {
-		return portNames.getSelectedItem().toString();
+		if (portNames.getSelectedItem() == null) {
+			return " ";
+		} else {
+			return portNames.getSelectedItem().toString();
+		}
 	}
 }
